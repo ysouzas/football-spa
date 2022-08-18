@@ -19,14 +19,18 @@
         <ng-template #elseBlock> <mat-chip> Monday: -- </mat-chip></ng-template>
 
         <div
-          *ngIf="item.wednesdayScore !== 0; then thenBlock; else elseBlock"
+          *ngIf="
+            item.wednesdayScore !== 0;
+            then thenBlockWednesday;
+            else elseBlockWednesday
+          "
         ></div>
-        <ng-template #thenBlock>
+        <ng-template #thenBlockWednesday>
           <mat-chip>
             Wednesday: {{ item.wednesdayScore | number: "1.2" }}
           </mat-chip>
         </ng-template>
-        <ng-template #elseBlock>
+        <ng-template #elseBlockWednesday>
           <mat-chip> Wednesday: -- </mat-chip></ng-template
         >
       </mat-chip-list>
