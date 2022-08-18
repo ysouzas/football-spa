@@ -2,7 +2,7 @@ name: Deploy to Azure
 on:
   push:
     branches:
-      - master
+      - main
 env:
   AZURE_WEBAPP_NAME: peladabaixonivel
   AZURE_WEBAPP_PACKAGE_PATH: "./dist/football-spa"
