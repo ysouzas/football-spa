@@ -1,0 +1,58 @@
+<mat-toolbar color="primary">
+  <span>Pelada Baixo Nivel</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<table mat-table [dataSource]="players" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="generalScore">
+    <th mat-header-cell *matHeaderCellDef>General</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.generalScore | number: "1.2" }}
+    </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="momentScore">
+    <th mat-header-cell *matHeaderCellDef>Moment</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.momentScore | number: "1.2" }}
+    </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="mondayScore">
+    <th mat-header-cell *matHeaderCellDef>Monday</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.mondayScore | number: "1.2" }}
+    </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="wednesdayScore">
+    <th mat-header-cell *matHeaderCellDef>Wednesday</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.wednesdayScore | number: "1.2" }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<router-outlet></router-outlet>
