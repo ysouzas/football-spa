@@ -12,7 +12,8 @@ export class AppComponent implements OnInit {
   title = "Pelada Baixo Nivel";
   players: Player[] = [];
   idsToSort: string[] = [];
-
+  times: string = "";
+  hidden = true;
   constructor(private playerService: PlayerService) {}
 
   ngOnInit(): void {
@@ -49,7 +50,8 @@ export class AppComponent implements OnInit {
         });
         aaa += `-------------------------------------\n`;
       });
-      console.log(aaa);
+      this.times = aaa;
+      this.hidden = false;
     });
   }
 }

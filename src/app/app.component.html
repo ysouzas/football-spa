@@ -1,10 +1,13 @@
 <mat-toolbar color="primary">
   <span>Pelada Baixo Nivel</span>
-  <button mat-button color="primary">Tirar time</button>
+  <button mat-button color="accent" (click)="getTeams()">Tirar time</button>
 </mat-toolbar>
 
+<div style="height: 450px; white-space: pre-wrap" [hidden]="hidden">
+  {{ times }}
+</div>
 <div>
-  <mat-grid-list cols="5" rowHeight="2:1">
+  <mat-grid-list cols="2" rowHeight="2:1">
     <mat-grid-tile *ngFor="let item of players; let i = index">
       <app-selectable-card
         (newItemEvent)="onSelectPlayer($event)"
@@ -14,23 +17,6 @@
       ></app-selectable-card
     ></mat-grid-tile>
   </mat-grid-list>
-
   <br />
-
-  <section>
-    <div class="example-button-row">
-      <div class="example-flex-container">
-        <div class="example-button-container">
-          <button
-            mat-fab
-            aria-label="Example icon button with a heart icon"
-            (click)="getTeams()"
-          >
-            <mat-icon>favorite</mat-icon>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
 </div>
 <router-outlet></router-outlet>
