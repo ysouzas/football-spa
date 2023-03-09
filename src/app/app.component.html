@@ -1,42 +1,36 @@
 <mat-toolbar color="primary">
   <span>Pelada Baixo Nivel</span>
-  <span class="example-spacer"></span>
+  <button mat-button color="primary">Tirar time</button>
 </mat-toolbar>
 
 <div>
-  <mat-card *ngFor="let item of players; let i = index" class="card">
-    <mat-card-title>{{ item.name }} #{{ i + 1 }}</mat-card-title>
-    <mat-card-subtitle>
-      <mat-chip-list class="chip-list" aria-label="Dog selection">
-        <mat-chip> Moment: {{ item.momentScore | number: "1.2" }} </mat-chip>
-        <mat-chip> General: {{ item.generalScore | number: "1.2" }} </mat-chip>
-        <div
-          *ngIf="item.mondayScore !== 0; then thenBlock; else elseBlock"
-        ></div>
-        <ng-template #thenBlock>
-          <mat-chip> Monday: {{ item.mondayScore | number: "1.2" }} </mat-chip>
-        </ng-template>
-        <ng-template #elseBlock> <mat-chip> Monday: -- </mat-chip></ng-template>
-
-        <div
-          *ngIf="
-            item.wednesdayScore !== 0;
-            then thenBlockWednesday;
-            else elseBlockWednesday
-          "
-        ></div>
-        <ng-template #thenBlockWednesday>
-          <mat-chip>
-            Wednesday: {{ item.wednesdayScore | number: "1.2" }}
-          </mat-chip>
-        </ng-template>
-        <ng-template #elseBlockWednesday>
-          <mat-chip> Wednesday: -- </mat-chip></ng-template
-        >
-      </mat-chip-list>
-    </mat-card-subtitle>
-  </mat-card>
+  <mat-grid-list cols="5" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let item of players; let i = index">
+      <app-selectable-card
+        (newItemEvent)="onSelectPlayer($event)"
+        name="{{ item.name }}"
+        id="{{ item.id }}"
+        [score]="item.generalScore"
+      ></app-selectable-card
+    ></mat-grid-tile>
+  </mat-grid-list>
 
   <br />
+
+  <section>
+    <div class="example-button-row">
+      <div class="example-flex-container">
+        <div class="example-button-container">
+          <button
+            mat-fab
+            aria-label="Example icon button with a heart icon"
+            (click)="getTeams()"
+          >
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 <router-outlet></router-outlet>
