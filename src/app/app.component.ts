@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { Player } from './models/player';
-import { PlayerService } from './services/player.service';
+import { Player } from "./models/player";
+import { PlayerService } from "./services/player.service";
 
 @Component({
   selector: "app-root",
@@ -49,6 +49,20 @@ export class AppComponent implements OnInit {
           aaa += `${a.name} - ${a.generalScore.toFixed(2)}\n`;
         });
         aaa += `-------------------------------------\n`;
+      });
+      this.times = aaa;
+      this.hidden = false;
+    });
+  }
+
+  ranking() {
+    this.playerService.ranking(this.idsToSort).subscribe((asd) => {
+      var aaa = "";
+      console.log(asd);
+      asd.forEach((element: any, index: any) => {
+        aaa += `${index + 1} - ${element.name}: ${element.generalScore.toFixed(
+          2
+        )}\n`;
       });
       this.times = aaa;
       this.hidden = false;

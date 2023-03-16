@@ -1,13 +1,14 @@
 <mat-toolbar color="primary">
   <span>Pelada Baixo Nivel</span>
   <button mat-button color="accent" (click)="getTeams()">Tirar time</button>
+  <button mat-button color="accent" (click)="ranking()">Ranking</button>
 </mat-toolbar>
 
-<div style="height: 450px; white-space: pre-wrap" [hidden]="hidden">
+<div style="height: 800px; white-space: pre-wrap" [hidden]="hidden">
   {{ times }}
 </div>
 <div>
-  <mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-list cols="2" rowHeight="1:1">
     <mat-grid-tile *ngFor="let item of players; let i = index">
       <app-selectable-card
         (newItemEvent)="onSelectPlayer($event)"

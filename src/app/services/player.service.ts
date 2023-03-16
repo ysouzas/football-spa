@@ -1,10 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { retry } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { retry } from "rxjs/operators";
 
-import { environment } from '../../environments/environment';
-import { Player } from '../models/player';
+import { environment } from "../../environments/environment";
+import { Player } from "../models/player";
 
 @Injectable({
   providedIn: "root",
@@ -29,6 +29,12 @@ export class PlayerService {
         JSON.stringify(ids),
         this.httpOptions
       )
+      .pipe(retry(2));
+  }
+
+  ranking(ids: string[]): Observable<any> {
+    return this.httpClient
+      .get(`${environment.apiUrl}/player/ranking`, this.httpOptions)
       .pipe(retry(2));
   }
 }

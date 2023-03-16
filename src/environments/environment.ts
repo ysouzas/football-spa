@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://peladabaixonivel-api.azurewebsites.net/api"
+  apiUrl: "https://localhost:7278/api",
 };
 
 /*
