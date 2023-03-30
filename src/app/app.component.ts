@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
-import { Player } from "./models/player";
-import { PlayerService } from "./services/player.service";
+import { Player } from './models/player';
+import { PlayerService } from './services/player.service';
 
 @Component({
   selector: "app-root",
@@ -57,9 +57,11 @@ export class AppComponent implements OnInit {
 
   ranking() {
     this.playerService.ranking(this.idsToSort).subscribe((asd) => {
-      var aaa = "";
+      var aaa = `Ranking ${asd.date} - ${new Date().toLocaleDateString(
+        "pt-BR"
+      )} \n`;
       console.log(asd);
-      asd.forEach((element: any, index: any) => {
+      asd.players.forEach((element: any, index: any) => {
         aaa += `${index + 1} - ${element.name}: ${element.generalScore.toFixed(
           2
         )}\n`;
