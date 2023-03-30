@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
   ranking() {
     this.playerService.ranking(this.idsToSort).subscribe((asd) => {
       var aaa = `Ranking ${asd.date} - ${new Date().toLocaleDateString(
-        "pt-BR"
+        "pt-br"
       )} \n`;
       console.log(asd);
       asd.players.forEach((element: any, index: any) => {
