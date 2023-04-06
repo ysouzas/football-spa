@@ -1,24 +1,10 @@
-import {
-  DisplayMessage,
-  GenericValidator,
-  ValidationMessages,
-} from './../../../shared/utils/generic-form-validation';
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChildren,
-} from '@angular/core';
-import {
-  FormBuilder,
-  FormControlName,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
+import { FormBuilder, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { fromEvent, merge, Observable } from 'rxjs';
+
 import { User } from '../../models/user';
 import { AuthService } from '../../services/auth.service';
-import { Observable, fromEvent, merge } from 'rxjs';
+import { DisplayMessage, GenericValidator, ValidationMessages } from './../../../shared/utils/generic-form-validation';
 
 @Component({
   selector: 'app-register',
@@ -74,7 +60,18 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   addUser(): void {
     if (this.form.dirty && this.form.valid) {
       this.user = Object.assign({}, this.user, this.form.value);
-      this.authService.register(this.user);
+      this.authService.register(this.user).subscribe({
+        next: this.next,
+        error: this.error,
+      });
     }
+  }
+
+  next(response: any) {
+    debugger;
+  }
+
+  error(fail: any) {
+    debugger;
   }
 }
