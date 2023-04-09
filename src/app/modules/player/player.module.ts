@@ -10,9 +10,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { ShowTeamsComponent } from './components/show-teams/show-teams.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [PlayerComponent, NewComponent, ListComponent],
+  declarations: [
+    PlayerComponent,
+    NewComponent,
+    ListComponent,
+    ShowTeamsComponent,
+  ],
   imports: [
     CommonModule,
     PlayerRoutingModule,
@@ -20,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     MatCheckboxModule,
     MatIconModule,
+    MatDialogModule,
   ],
   providers: [PlayerService],
 })
