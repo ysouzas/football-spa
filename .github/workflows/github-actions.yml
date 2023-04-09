@@ -19,6 +19,7 @@ jobs:
       - run: node config.js
         env:
           API_URL: ${{ secrets.API_URL }}
+          API_URL_PLAYERS: ${{ secrets.API_URL_PLAYERS }}
       - name: Install dependencies
         run: npm install
       - name: Build
