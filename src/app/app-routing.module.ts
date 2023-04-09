@@ -9,6 +9,11 @@ const routes: Routes = [
       import('./modules/core/core.module').then((m) => m.CoreModule),
   },
   { path: 'notfound', component: NotFoundComponent },
+  {
+    path: 'player',
+    loadChildren: () =>
+      import('./modules/player/player.module').then((m) => m.PlayerModule),
+  },
   { path: '**', component: NotFoundComponent },
 ];
 

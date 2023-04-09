@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-player',
   template: '<router-outlet></router-outlet>',
 })
-export class HomeComponent {}
+export class PlayerComponent {}

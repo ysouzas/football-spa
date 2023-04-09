@@ -1,0 +1,38 @@
+<section>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button
+          mat-fab
+          color="primary"
+          aria-label="Example icon button with a delete icon"
+          (click)="generateTeams()"
+        >
+          <mat-icon>check</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<table mat-table [dataSource]="players" class="mat-elevation-z8 demo-table">
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <mat-checkbox (click)="selectPlayer(element.id)"> </mat-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="score">
+    <th mat-header-cell *matHeaderCellDef>Score</th>
+    <td mat-cell *matCellDef="let element">{{ element.score }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
