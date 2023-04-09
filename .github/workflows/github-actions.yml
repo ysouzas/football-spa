@@ -5,7 +5,6 @@ on:
       - main
 env:
   NODE_VERSION: "18.x"
-  API_URL_PLAYERS: "https://peladabaixonivelfunctions.azurewebsites.net/api/football_functions"
 
 jobs:
   build-and-deploy:
@@ -20,7 +19,7 @@ jobs:
       - run: node config.js
         env:
           API_URL: ${{ secrets.API_URL }}
-          API_URL_PLAYERS: ${{ env.API_URL_PLAYERS }}
+          API_URL_PLAYERS: ${{ secrets.API_URL_PLAYERS }}
       - name: Install dependencies
         run: npm install
       - name: Build
