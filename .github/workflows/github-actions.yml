@@ -20,7 +20,7 @@ jobs:
         env:
           API_URL: ${{ secrets.API_URL }}
           API_URL_PLAYERS: ${{ secrets.API_URL_PLAYERS }}
-      - name: Install dependencies
+      - name: Install dependencies ${{ secrets.API_URL_PLAYERS }}
         run: npm install
       - name: Build
         run: npm run prod
