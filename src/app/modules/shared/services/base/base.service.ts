@@ -19,14 +19,10 @@ export abstract class BaseService {
   }
 
   protected serviceError(response: Response | any) {
-    debugger;
     const customError: Error[] = [];
 
     if (response instanceof HttpErrorResponse) {
-      if (response.statusText === 'Unknown Error') {
-        customError.push(new Error('Error 500'));
-        response.error.erros = customError;
-      }
+      customError.push(new Error(response.message));
     }
 
     console.log(response);

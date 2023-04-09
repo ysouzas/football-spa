@@ -8,11 +8,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/core/core.module').then((m) => m.CoreModule),
   },
-  {
-    path: 'auth',
-    loadChildren: () =>
-      import('./modules/auth/auth.module').then((m) => m.AuthModule),
-  },
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent },
 ];
