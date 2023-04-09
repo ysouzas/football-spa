@@ -15,6 +15,7 @@ export class PlayerService extends BaseService {
   }
 
   getAll(): Observable<Player[]> {
+    console.log(this.url);
     const response: Observable<Player[]> = this.http.get<Player[]>(
       `${this.url}`,
       this.GetHeader()
@@ -23,6 +24,8 @@ export class PlayerService extends BaseService {
   }
 
   sortTeams(ids: string[]): Observable<any> {
+    console.log(this.url);
+
     const response: Observable<any> = this.http.post<any>(
       `${this.url}`,
       ids,

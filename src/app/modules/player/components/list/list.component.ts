@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../services/player.service';
 import { Player } from '../../models/player';
-import { Observable } from 'rxjs';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatDialog } from '@angular/material/dialog';
 import { ShowTeamsComponent } from '../show-teams/show-teams.component';
