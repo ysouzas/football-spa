@@ -16,14 +16,23 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Test
+        env:
+          TEST_GITHUB_TOKEN: ${{ secrets.API_URL }}
+          TEST_SECRET: ${{ secrets.API_URL_PLAYERS }}
+        run: |
+          echo ${#TEST_GITHUB_TOKEN}
+          echo ${#TEST_SECRET}
       - run: node config.js
         env:
           API_URL: ${{ secrets.API_URL }}
           API_URL_PLAYERS: ${{ secrets.API_URL_PLAYERS }}
       - name: Install dependencies
         run: npm install
+
       - name: Build
         run: npm run prod
+
       - name: "Deploy to Azure WebApp"
         uses: azure/webapps-deploy@v1
         with:
