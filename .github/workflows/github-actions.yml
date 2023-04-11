@@ -1,8 +1,8 @@
 name: Deploy to Azure
 on:
-  push:
-    branches:
-      - main
+  pull_request_target:
+    types: [opened, synchronize]
+
 env:
   NODE_VERSION: "18.x"
 
