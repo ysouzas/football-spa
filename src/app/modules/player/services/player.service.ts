@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
-import { BaseService } from '../../shared/services/base/base.service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+import { BaseService } from '../../shared/services/base/base.service';
 import { Player } from '../models/player';
 
 @Injectable({
@@ -17,7 +18,7 @@ export class PlayerService extends BaseService {
   getAll(): Observable<Player[]> {
     console.log(this.url);
     const response: Observable<Player[]> = this.http.get<Player[]>(
-      `${this.url}`,
+      `${this.url}/football_functions`,
       this.GetHeader()
     );
     return response;
@@ -27,7 +28,7 @@ export class PlayerService extends BaseService {
     console.log(this.url);
 
     const response: Observable<any> = this.http.post<any>(
-      `${this.url}`,
+      `${this.url}/teams`,
       ids,
       this.GetHeader()
     );
